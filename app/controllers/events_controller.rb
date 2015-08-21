@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @activities = Activity.all
   end
 
   def create
@@ -20,6 +21,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:activity, :location, :access, :time)
+    params.require(:event).permit(:activity_id, :location, :is_public, :time)
   end
 end
