@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.3'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'foreman'
 gem 'pg'
 gem 'puma'
