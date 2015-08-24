@@ -1,10 +1,12 @@
-= link_to "New Event", new_event_path
 - @events.each do |event|
-  h1 = event.activity.name
-  ul
-    li = event.location
-    li = event.time
-    - if event.is_public == true
-      li This event is public
-    -else
-      li This is a private event
+  = link_to event_path(event), class: "panel panel-default"
+    .panel-heading
+      h1 = event.activity.name
+    .panel-body
+      ul
+        li = event.location
+        li = event.time
+        - if event.is_public == true
+          li This event is public
+        -else
+          li This is a private event
