@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.checker{
+  position: absolute;
+  top: 5em;
+  right: 5em;
+}
+
 #map{
   height: 300px;
   width: 300px;

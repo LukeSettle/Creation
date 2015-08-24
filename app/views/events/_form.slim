@@ -1,6 +1,6 @@
 = simple_form_for @event do |f|
   = f.association :activity, collection: @activities
-  = f.input :is_public, as: :boolean
+  = f.input :is_public, class: "checker"
   = f.input :time, as: :date, html5: true, placeholder: 'enter event date'
   = f.input :location
   input#pac-input.controls type="text" placeholder="Search Box"
