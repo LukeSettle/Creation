@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.3'
+gem 'actionview-encoded_mail_to'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'foreman'

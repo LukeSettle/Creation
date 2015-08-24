@@ -1,7 +1,8 @@
 - @events.each do |event|
-  = link_to event_path(event), class: "panel panel-default"
+  .panel.panel-default
     .panel-heading
       h1 = event.activity.name
+      = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.location}"
     .panel-body
       ul
         li = event.location

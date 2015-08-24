@@ -8,12 +8,14 @@ class EventsController < ApplicationController
   end
 
   def new
+    authenticate_user!
     @event = Event.new
     @activities = Activity.all
   end
 
   def create
     @event = Event.new(event_params)
+    @event.user_id = current_user.id
     if @event.save
       redirect_to root_path
     else

@@ -13,10 +13,10 @@
   .navbar.navbar-default
     .container-fluid
       .navbar-header.navbar-btn
-        = link_to "New Event", new_event_path, class: "btn btn-primary"
         = link_to "Events", root_path, class: "btn btn-primary"
         - if current_user
           = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary"
+          = link_to "New Event", new_event_path, class: "btn btn-primary"
         - else
           = link_to "Sign In", new_user_session_path, class: "btn btn-primary"
 = yield
