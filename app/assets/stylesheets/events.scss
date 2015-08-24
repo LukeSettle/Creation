@@ -1,11 +1,10 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.well.form_container{
+  margin: 20px 20% 0px 20%;
+}
 
-.checker{
-  position: absolute;
-  top: 5em;
-  right: 5em;
+#new_event{
+  display: block;
+  margin: 0px auto;
 }
 
 #map{
