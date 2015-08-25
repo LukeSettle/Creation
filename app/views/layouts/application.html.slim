@@ -10,10 +10,11 @@
   = csrf_meta_tags
 </head>
 <body>
-  .navbar.navbar-default
+  .navbar.navbar-inverse
     .container-fluid
       .navbar-header.navbar-btn
-        = link_to "Events", root_path, class: "btn btn-primary"
+        = link_to "Home", root_path, class: "btn btn-primary"
+        = render 'activities/nav'
         - if current_user
           = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary"
           = link_to "New Event", new_event_path, class: "btn btn-primary"
@@ -22,7 +23,7 @@
         - if current_page?(root_path)
           = form_tag events_path method: :get do
             = text_field_tag :search, params[:search]
-            = submit_tag "Search", name: nil
+            = submit_tag "Search", name: nil      
 = yield
 
 </body>

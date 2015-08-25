@@ -1,0 +1,18 @@
+- if @activity.events.count == 0
+  .well
+    h1 There are no current events for #{@activity.name}, would you like to create one?
+    h3 = link_to "New Event", new_event_path
+-else
+  - @activity.events.each do |event|
+    .panel.panel-default
+      .panel-heading
+        h1 = event.activity.name
+        = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.location}"
+      .panel-body
+        ul
+          li = event.location
+          li = event.time
+          - if event.is_public == true
+            li This event is public
+          -else
+            li This is a private event

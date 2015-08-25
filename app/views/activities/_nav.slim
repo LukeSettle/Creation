@@ -1,0 +1,7 @@
+div.btn-group
+  button.btn.btn-primary.dropdown-toggle type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    | Activities
+    Action.caret
+  ul.dropdown-menu
+    - all_activities.each do |activity|
+      li = link_to "#{activity.name}", activity_path(activity)

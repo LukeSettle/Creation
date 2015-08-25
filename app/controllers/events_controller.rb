@@ -10,7 +10,6 @@ class EventsController < ApplicationController
   def new
     authenticate_user!
     @event = Event.new
-    @activities = Activity.all
   end
 
   def create
