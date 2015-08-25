@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.paginate(:page => params[:page], :per_page => 30)
+    @q = Event.ransack(params[:q])
+    @events = @q.result.page(params[:page])
   end
 
   def show

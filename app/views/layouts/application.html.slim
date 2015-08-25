@@ -21,9 +21,7 @@
         - else
           = link_to "Sign In", new_user_session_path, class: "btn btn-primary"
         - if current_page?(root_path)
-          = form_tag events_path method: :get do
-            = text_field_tag :search, params[:search]
-            = submit_tag "Search", name: nil      
+        = render 'events/search'
 = yield
 
 </body>
