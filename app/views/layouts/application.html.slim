@@ -20,8 +20,8 @@
           = link_to "New Event", new_event_path, class: "btn btn-primary"
         - else
           = link_to "Sign In", new_user_session_path, class: "btn btn-primary"
-        - if current_page?(root_path)
-        = render 'events/search'
+        - if current_page?(controller: 'events', action: 'index') || current_page?(root_path)
+          = render 'events/search'
 = yield
 
 </body>
