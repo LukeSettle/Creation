@@ -1,3 +1,7 @@
+- if @events.empty?
+  .well.center
+    h1.empty_page There are no results for your search. Would you like to create an event?
+    = link_to "New Event", new_event_path, class: 'btn btn-success'
 - @events.each do |event|
   .panel.panel-default
     .panel-heading
