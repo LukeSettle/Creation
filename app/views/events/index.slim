@@ -7,7 +7,7 @@
   - @events.each do |event|
     .col-sm-6.col-md-4
       .thumbnail.back_pic
-        = image_tag(event.activity.image, size: "400x300")
+        = image_tag event.activity.image, size: "400x300"
         .caption
           h1 = event.activity.name
           = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.location}"
