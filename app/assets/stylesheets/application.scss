@@ -3,6 +3,11 @@
 @import "bootstrap-datetimepicker";
 @import "events";
 
+@media screen and (max-width: 480px)
+{
+  .site-container{ box-sizing: border-box; overflow-x:hidden; }
+}
+
 .center{
   text-align: center;
 }

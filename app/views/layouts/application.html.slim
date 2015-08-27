@@ -11,17 +11,19 @@
   = csrf_meta_tags
 </head>
 <body>
-  .navbar.navbar-inverse
-    .container-fluid
-      .navbar-header.navbar-btn
-        = link_to "Home", root_path, class: "btn btn-primary"
-        = render 'activities/nav'
-        - if current_user
-          = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary"
-          = link_to "New Event", new_event_path, class: "btn btn-primary"
-        - else
-          = link_to "Sign In", new_user_session_path, class: "btn btn-primary"
-= yield
+  <div class="site-container">
+    .navbar.navbar-inverse
+      .container-fluid
+        .navbar-header.navbar-btn
+          = link_to "Home", root_path, class: "btn btn-primary"
+          = render 'activities/nav'
+          - if current_user
+            = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary"
+            = link_to "New Event", new_event_path, class: "btn btn-primary"
+          - else
+            = link_to "Sign In", new_user_session_path, class: "btn btn-primary"
+    = yield
+  </div>
 
 </body>
 </html>
