@@ -106,7 +106,7 @@ function deleteMarkers() {
 
 //map for each event
 
-function initMap() {
+function initMap2() {
   var map = new google.maps.Map(document.getElementById('eventMap'), {
     zoom: 8,
     center: {lat: 40.731, lng: -73.997}

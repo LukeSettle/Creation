@@ -14,6 +14,6 @@
 
 
 / hidden inputs for lat and lng
-= simple_form_for @event do |f|
-  = f.input :latitude, as: :hidden, value: @event.latitude, id: 'jsLat'
-  = f.input :longitude, as: :hidden, value: @event.longitude, id: 'jsLng'
+form
+ input type="text" value="#{@event.latitude}" id="jsLat"
+ input type="text" value="#{@event.longitude}" id="jsLng"
