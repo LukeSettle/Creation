@@ -7,8 +7,11 @@ function initAutocomplete() {
   });
   map.addListener('click', function(e) {
     placeMarkerAndPanTo(e.latLng, map);
+    console.log(e)
+    $('#event_latitude').val(e.latLng.G);
+    $('#event_longitude').val(e.latLng.K);
   });
-}
+
 
 function placeMarkerAndPanTo(latLng, map) {
   var marker = new google.maps.Marker({
@@ -16,6 +19,7 @@ function placeMarkerAndPanTo(latLng, map) {
     map: map
   });
   map.panTo(latLng);
+}
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
@@ -39,11 +43,11 @@ function placeMarkerAndPanTo(latLng, map) {
       return;
     }
 
-    // // Clear out the old markers.
-    // markers.forEach(function(marker) {
-    //   marker.setMap(null);
-    // });
-    // markers = [];
+    // Clear out the old markers.
+    markers.forEach(function(marker) {
+      marker.setMap(null);
+    });
+    markers = [];
 
     // For each place, get the icon, name and location.
     var bounds = new google.maps.LatLngBounds();
