@@ -5,6 +5,8 @@
     = f.association :activity, collection: Activity.all
     = f.input :time, as: :date, html5: true, placeholder: 'enter event date'
     = f.input :location
+    = f.input :latitude, id: "hidenLat"
+    = f.input :longitude, id: "hiddenLng"
     input#pac-input.controls type="text" placeholder="Search Box"
     #map
     = f.submit
