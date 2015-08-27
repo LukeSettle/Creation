@@ -5,10 +5,11 @@ Activity.create(name: "Fishing", image: 'Fishing.jpg')
 Activity.create(name: "Water Skiing", image: 'Water-Skiing.jpg')
 Activity.create(name: "Snow Skiing", image: 'Snow-Skiing.jpg')
 Activity.create(name: "Snowboarding", image: 'Snowboarding.jpg')
-Activity.create(name: "Hunting", image: 'Kayaking.jpg')
+Activity.create(name: "Kayaking", image: 'Kayaking.jpg')
+Activity.create(name: "Hunting", image: 'hunting.jpg')
 
 User.create(email: Faker::Internet.email, password: Faker::Internet.password(8))
 
 100.times do
-  Event.create(latitude:36.8547 , longitude:87.4889 , time: Faker::Date.forward(100), activity_id: Faker::Number.between(1, 8), user_id: 1)
+  Event.create(latitude:36.8547 , longitude:87.4889 , time: Faker::Date.forward(100), activity_id: Faker::Number.between(1, 9), user_id: 1)
 end
