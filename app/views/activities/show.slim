@@ -10,8 +10,8 @@
         = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.latitude} and #{event.longitude}"
       .panel-body
         ul
-          li = event.latitude
-          li = event.longitude
+          li = "Longitude: #{event.latitude}"
+          li = "Latitude: #{event.longitude}"
           li = event.time
           - if event.is_public == true
             li This event is public
