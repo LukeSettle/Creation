@@ -8,5 +8,5 @@ Activity.create(name: "Snowboarding", image: 'Snowboarding.jpg')
 Activity.create(name: "Hunting", image: 'Kayaking.jpg')
 
 100.times do
-  Event.create(location: Faker::Address.street_address, time: Faker::Date.forward(100), activity_id: Faker::Number.between(1, 8), user_id: 1)
+  Event.create(latitude:36.8547 , longitude:87.4889 , time: Faker::Date.forward(100), activity_id: Faker::Number.between(1, 8), user_id: 1)
 end
