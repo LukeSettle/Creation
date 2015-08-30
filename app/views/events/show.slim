@@ -10,10 +10,11 @@
         li This event is public
       -else
         li This is a private event
-#eventMap
+#openMap Click to get directions
+#eventMap.hide
 
 
 / hidden inputs for lat and lng
 form
- input type="text" value="#{@event.latitude}" id="jsLat"
- input type="text" value="#{@event.longitude}" id="jsLng"
+ input type="text" value="#{@event.latitude}" id="jsLat" hidden="true"
+ input type="text" value="#{@event.longitude}" id="jsLng" hidden="true"
