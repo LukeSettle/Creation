@@ -7,3 +7,10 @@ h3 Your Activities
 ul
 - @user.following_activities.each do |activity|
   li = activity.name
+h3 Your Events
+ul
+  -@user.following_events.each do |event|
+    = link_to event_path(event)
+      li
+        h4 = event.activity.name
+        p = event.time

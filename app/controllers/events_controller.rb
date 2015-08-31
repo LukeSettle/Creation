@@ -24,6 +24,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def follow
+    @event = Event.find(params[:event_id])
+    current_user.follow(@event)
+    redirect_to root_path
+  end
+
   private
 
   def event_params
