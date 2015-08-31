@@ -8,6 +8,11 @@ $(function() {
       center: {lat: lat, lng: lng},
       zoom: 8
     });
+    var eventMarker = new google.maps.Marker({
+      position: {lat: lat, lng: lng},
+      map: eventMap,
+      title: "Your Event location"
+    });
   })
 
   var map = new google.maps.Map(document.getElementById('map'), {

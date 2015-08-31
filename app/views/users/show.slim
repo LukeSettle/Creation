@@ -1,0 +1,9 @@
+h1 = @user.email
+p choose your activities
+ul
+- @activities.all.each do |activity|
+  li = link_to "#{activity.name}", activity_follow_path(activity), method: :put
+h3 Your Activities
+ul
+- @user.following_activities.each do |activity|
+  li = activity.name

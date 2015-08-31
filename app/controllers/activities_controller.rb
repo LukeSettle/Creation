@@ -21,6 +21,12 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
   end
 
+  def follow
+    @activity = Activity.find(params[:activity_id])
+    current_user.follow(@activity)
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def activity_params

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.3'
+gem "acts_as_follower"
 gem 'actionview-encoded_mail_to'
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.1.0'
