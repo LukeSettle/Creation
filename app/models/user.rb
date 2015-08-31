@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   has_many :events
   acts_as_follower
   acts_as_followable
+
+  def followed_activity_events
+    Event.where(activity: self.following_activities)
+  end
 end

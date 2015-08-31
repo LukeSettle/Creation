@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @q = Event.ransack(params[:q])
-    @events = @q.result.paginate(page: params[:page], per_page: 15)
+    @events = current_user.followed_activity_events.paginate(page: params[:page], per_page: 15)
   end
 
   def show
