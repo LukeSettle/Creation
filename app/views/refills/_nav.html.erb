@@ -1,4 +1,4 @@
-.navbar.navbar-inverse
+<!-- .navbar.navbar-inverse
   .container-fluid
     .navbar-header.navbar-btn
       = link_to "Home", root_path, class: "btn btn-primary"
@@ -9,7 +9,7 @@
         = link_to "Profile", user_path(current_user), class: "btn btn-primary"
       - else
         = link_to "Sign In", new_user_session_path, class: "btn btn-primary"
-
+ -->
 
 <header class="centered-navigation" role="banner">
   <div class="centered-navigation-wrapper">
@@ -28,22 +28,11 @@
           </a>
         </li>
         <li class="nav-link"><a href="javascript:void(0)">Testimonials</a></li>
-        <li class="nav-link more"><a href="javascript:void(0)">More</a>
+        <li class="nav-link more"><a href="javascript:void(0)">Activities</a>
           <ul class="submenu">
-            <li><a href="javascript:void(0)">Submenu Item</a></li>
-            <li><a href="javascript:void(0)">Another Item</a></li>
-            <li class="more"><a href="javascript:void(0)">Item with submenu</a>
-              <ul class="submenu">
-                <li><a href="javascript:void(0)">Sub-submenu Item</a></li>
-                <li><a href="javascript:void(0)">Another Item</a></li>
-              </ul>
-            </li>
-            <li class="more"><a href="javascript:void(0)">Another submenu</a>
-              <ul class="submenu">
-                <li><a href="javascript:void(0)">Sub-submenu</a></li>
-                <li><a href="javascript:void(0)">An Item</a></li>
-              </ul>
-            </li>
+            <% all_activities.each do |activity| %>
+              <li><%=link_to "#{activity.name}", activity_path(activity)%></li>
+            <%end%>
           </ul>
         </li>
         <li class="nav-link"><%=link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
