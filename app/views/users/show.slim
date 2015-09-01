@@ -1,16 +1,24 @@
-h1 = @user.email
-p choose your activities
-ul
-- @activities.all.each do |activity|
-  li = link_to "#{activity.name}", activity_follow_path(activity), method: :put
-h3 Your Activities
-ul
-- @user.following_activities.each do |activity|
-  li = activity.name
-h3 Your Events
-ul
-  -@user.following_events.each do |event|
-    = link_to event_path(event)
-      li
-        h4 = event.activity.name
-        p = event.time
+.userInfoContainer
+  h1 = @user.email
+  .dropdown
+    .dropdown-container
+      p.dropdown-description Activities To Try
+      p.dropdown-button Click to view
+      ul.dropdown-menu.dropdown-select
+        - @user.unliked_activities.each do |activity|
+          li = link_to "#{activity.name}", activity_follow_path(activity), method: :put
+  .dropdown
+    .dropdown-container
+      p.dropdown-description Liked Activities
+      p.dropdown-button Click to view
+      ul.dropdown-menu.dropdown-select
+        - @user.following_activities.each do |activity|
+         li = link_to "#{activity.name}", activity_path(activity)
+  .dropdown
+    .dropdown-container
+      p.dropdown-description Events Joined
+      p.dropdown-button Click to View
+      ul.dropdown-menu.dropdown-select
+        - @user.following_events.each do |event|
+         li = link_to "#{event.activity.name}", event_path
+         li = event.time
