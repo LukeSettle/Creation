@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   def index
-    @events = current_user.followed_activity_events.paginate(page: params[:page], per_page: 15)
+    if current_user
+      @events = current_user.followed_activity_events.paginate(page: params[:page], per_page: 15)
+    else
+      @events = Event.all.paginate(page: params[:page], per_page: 15)
+    end
   end
 
   def show
