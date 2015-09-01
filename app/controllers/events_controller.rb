@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
   def index
-    @q = Event.ransack(params[:q])
-    @events = @q.result.paginate(page: params[:page], per_page: 15)
+    if current_user
+      @events = current_user.followed_activity_events.paginate(page: params[:page], per_page: 15)
+    else
+      @events = Event.all.paginate(page: params[:page], per_page: 15)
+    end
   end
 
   def show
@@ -22,6 +25,12 @@ class EventsController < ApplicationController
       render 'new'
       flash[:warning]="Your event was not saved"
     end
+  end
+
+  def follow
+    @event = Event.find(params[:event_id])
+    current_user.follow(@event)
+    redirect_to root_path
   end
 
   private
