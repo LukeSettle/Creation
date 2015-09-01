@@ -10,6 +10,10 @@
         li This event is public
       -else
         li This is a private event
+h3 Who's Going
+ul
+  - @event.followers.each do |follower|
+   li = follower.email
 a
   h1#openMap Click to get directions
 #eventMap.hide

@@ -12,6 +12,7 @@
           h1 = event.activity.name
           = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.longitude} and #{event.latitude}"
         .panel-body
+          = link_to "Join Event", event_follow_path(event), method: :put
           ul
             li = "Longitude: #{event.longitude}"
             li = "Latitude: #{event.latitude}"
