@@ -1,1 +1,12 @@
-= link_to "Sign In", new_user_session_path
+<div class="modal">
+  <label for="modal-1">
+    <div class="modal-trigger">Sign In</div>
+  </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+  <div class="modal-fade-screen">
+    <div class="modal-inner">
+      <div class="modal-close" for="modal-1"></div>
+       = render 'users/sessions/newSession'
+    </div>
+  </div>
+</div>
