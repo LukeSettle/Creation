@@ -79,6 +79,7 @@ header.navigation {
   }
 
   ul.navigation-menu {
+    position: relative;
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     clear: both;
     display: none;
@@ -102,6 +103,7 @@ header.navigation {
   // The nav items
 
   ul li.nav-link {
+    position: relative;
     background: $navigation-background;
     display: block;
     line-height: $navigation-height;
@@ -142,6 +144,7 @@ header.navigation {
   }
 
   // Sub menus
+
 
   li.more.nav-link {
     padding-right: 0;
