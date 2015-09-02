@@ -1,24 +1,28 @@
 .userInfoContainer
   h1 = @user.email
-  .dropdown
-    .dropdown-container
-      p.dropdown-description Activities To Try
-      p.dropdown-button Click to view
-      ul.dropdown-menu.dropdown-select
-        - @user.unliked_activities.each do |activity|
-          li = link_to "#{activity.name}", activity_follow_path(activity), method: :put
-  .dropdown
-    .dropdown-container
-      p.dropdown-description Liked Activities
-      p.dropdown-button Click to view
-      ul.dropdown-menu.dropdown-select
-        - @user.following_activities.each do |activity|
-         li = link_to "#{activity.name}", activity_path(activity)
-  .dropdown
-    .dropdown-container
-      p.dropdown-description Events Joined
-      p.dropdown-button Click to View
-      ul.dropdown-menu.dropdown-select
-        - @user.following_events.each do |event|
-         li = link_to "#{event.activity.name}", event_path
-         li = event.time
+  ul.tabs
+    li.tab
+      .dropdown
+        .dropdown-container
+          p.dropdown-description Activities To Try
+          p.dropdown-button Click to view
+          ul.dropdown-menu.dropdown-select
+            - @user.unliked_activities.each do |activity|
+              li = link_to "#{activity.name}", activity_follow_path(activity), method: :put
+    li.tab
+      .dropdown
+        .dropdown-container
+          p.dropdown-description Liked Activities
+          p.dropdown-button Click to view
+          ul.dropdown-menu.dropdown-select
+            - @user.following_activities.each do |activity|
+             li = link_to "#{activity.name}", activity_path(activity)
+    li.tab
+      .dropdown
+        .dropdown-container
+          p.dropdown-description Events Joined
+          p.dropdown-button Click to View
+          ul.dropdown-menu.dropdown-select
+            - @user.following_events.each do |event|
+             li = link_to "#{event.activity.name}", event_path
+             li = event.time
