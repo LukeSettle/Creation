@@ -1,6 +1,6 @@
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap.js
+//= require refills/nav
+//= require refills/modal
+//= require refills/dropdown
 //= require events
-//= require activities
-//= require_tree .

@@ -1,3 +1,45 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body#signIn{
+  background-image: url("trees.jpg");
+  .linkContainer{
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 10em;
+    .modal-inner{
+      color: black;
+    }
+  }
+  .linkOverlay{
+    background: rgba(90, 215, 0, 0.76);
+    border-radius: 10px;
+    position: relative;
+    top:15.5em;
+    height: 6em;
+    width: 50%;
+    display: block;
+    margin: 0px auto;
+    z-index: -1;
+  }
+}
+
+.userInfoContainer{
+  height: 50%;
+  width: 20em;
+  border: 2px solid #ccc;
+  margin-top: 3em;
+  .tabs{
+    display: block;
+    text-align: center;
+    .tab{
+      width: 100%;
+      margin-top:5px;
+    }
+  }
+}
+
+.userCardsContainer{
+  width: 50%;
+  float: right;
+  position: relative;
+  bottom: 25em;
+}

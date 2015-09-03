@@ -1,0 +1,30 @@
+<body id="signIn">
+  <div class="linkOverlay"></div>
+  <div class="linkContainer">
+    <div class="modal">
+      <label for="modal-1">
+        <div class="modal-trigger">Sign In</div>
+      </label>
+      <input class="modal-state" id="modal-1" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-1"></div>
+           = render 'users/sessions/newSession'
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <label for="modal-2">
+        <div class="modal-trigger2">Sign Up</div>
+      </label>
+      <input class="modal-state" id="modal-2" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-1"></div>
+           = render 'users/registrations/newUser'
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
