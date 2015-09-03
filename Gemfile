@@ -32,8 +32,10 @@ group :production do
 end
 group :development, :test do
   gem "codeclimate-test-reporter", require: nil
+  gem 'database_cleaner'
   gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem "zonebie"
 end
