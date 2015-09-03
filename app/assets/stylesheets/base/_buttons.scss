@@ -1,5 +1,5 @@
 #{$all-button-inputs},
-button {
+.button {
   @include appearance(none);
   -webkit-font-smoothing: antialiased;
   background-color: rgba(90,215,0,0.76);
