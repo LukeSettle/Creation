@@ -1,5 +1,5 @@
 language: ruby
 script:
-  - xvfb-run script/test
+  - script/test
 rvm:
   - 2.2.2
