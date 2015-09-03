@@ -1,5 +1,5 @@
 - if @events.empty?
-  .well.center
+  .center
     h1.empty_page There are no results for your search. Would you like to create an event?
     = link_to "New Event", new_event_path, class: 'btn btn-success'
 -else
@@ -16,5 +16,7 @@
             p This event is public
           -else
             p This is a private event
+          p
+            button = link_to "Join", event_follow_path(event), method: :put, class: "center"
   .apple_pagination
     = will_paginate @events

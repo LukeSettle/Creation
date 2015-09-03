@@ -2,10 +2,10 @@
 button {
   @include appearance(none);
   -webkit-font-smoothing: antialiased;
-  background-color: $action-color;
+  background-color: rgba(90,215,0,0.76);
   border-radius: $base-border-radius;
   border: none;
-  color: #fff;
+  color: white;
   cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
@@ -17,11 +17,15 @@ button {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-
+  a{
+    color: white;
+    &:hover {
+      color: darken(white, 15%);
+    }
+  }
   &:hover,
   &:focus {
-    background-color: darken($action-color, 15%);
-    color: #fff;
+    background-color: darken(rgba(90,215,0,0.76), 5%);
   }
 
   &:disabled {
