@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   def unliked_activities
     Activity.all - self.following_activities
   end
+
+  def upcoming_events
+    self.following_events.where("time <= ?", Time.now)
+  end
 end

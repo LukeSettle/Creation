@@ -1,3 +1,4 @@
+// Left side container
 .userInfoContainer
   h1 = @user.email
   ul.tabs
@@ -7,8 +8,11 @@
           p.dropdown-description Activities To Try
           p.dropdown-button Click to view
           ul.dropdown-menu.dropdown-select
-            - @user.unliked_activities.each do |activity|
-              li = link_to "#{activity.name}", activity_follow_path(activity), method: :put
+            - if @user.unliked_activities.empty?
+              li You liked all the activities
+            - else
+              - @user.unliked_activities.each do |activity|
+                li = link_to "#{activity.name}", activity_follow_path(activity), method: :put
     li.tab
       .dropdown
         .dropdown-container
@@ -16,7 +20,7 @@
           p.dropdown-button Click to view
           ul.dropdown-menu.dropdown-select
             - @user.following_activities.each do |activity|
-             li = link_to "#{activity.name}", activity_path(activity)
+              li = link_to "#{activity.name}", activity_path(activity)
     li.tab
       .dropdown
         .dropdown-container
@@ -26,3 +30,20 @@
             - @user.following_events.each do |event|
              li = link_to "#{event.activity.name}", event_path
              li = event.time
+
+// Right side for upcoming events
+h1 Your Upcoming Events 
+.userCardsContainer
+  .cards
+   - current_user.upcoming_events.each do |event|
+     .card
+       .card-image
+         = link_to image_tag(event.activity.image, size: "400x300"), event_path(event), "data-no-turbolink" => true
+       .card-header = "#{event.activity.name}"
+       .card-copy
+         p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.longitude} and #{event.latitude}"
+         p = event.time
+         - if event.is_public == true
+           p This event is public
+         -else
+           p This is a private event
