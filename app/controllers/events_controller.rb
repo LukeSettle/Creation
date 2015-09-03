@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   def follow
     @event = Event.find(params[:event_id])
     current_user.follow(@event)
+    flash[:alert] = "You joined an event!"
     redirect_to root_path
   end
 
