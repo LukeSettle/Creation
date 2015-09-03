@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { FactoryGirl.create(:user) }
   let(:event) { FactoryGirl.create(:event) }
-  let(:activities) { FactoryGirl.create_list(:activity, 5) }
   describe "followed_activity_events" do
     it "returns events from followed activites" do
       event
@@ -28,9 +27,9 @@ RSpec.describe User, type: :model do
   end
 
   describe "unliked_activities" do
+    let(:activities) { FactoryGirl.create_list(:activity, 5) }
     it "lists activites that aren't followed" do
-      activity = activities.first
-      user.follow(activity)
+      user.follow(activities.first)
       expect(user.unliked_activities.count).to eq(4)
     end
   end
