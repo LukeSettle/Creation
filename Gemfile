@@ -31,7 +31,7 @@ group :production do
   gem 'rails_12factor'
 end
 group :development, :test do
-  gem 'simplecov', :require => false, :group => :test
+  gem "codeclimate-test-reporter", require: nil
   gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
