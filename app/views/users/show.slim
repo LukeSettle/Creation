@@ -33,9 +33,11 @@
 
 // Right side for upcoming events
 .userCardsContainer
-  h1 Your Upcoming Events
+  h1.upcoming Your Upcoming Events
+  - if current_user.upcoming_events.empty?
+    h1.empty_result You have no upcoming events
   .cards
-   - current_user.upcoming_events.each do |event|
+   - @upcoming_events.each do |event|
      .card
        .card-image
          = link_to image_tag(event.activity.image, size: "400x300"), event_path(event), "data-no-turbolink" => true
@@ -47,3 +49,5 @@
            p This event is public
          -else
            p This is a private event
+  .apple_pagination
+    = will_paginate @upcoming_events
