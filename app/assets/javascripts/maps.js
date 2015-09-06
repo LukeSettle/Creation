@@ -1,4 +1,5 @@
 $(function() {
+  // map for each event
   $('#openMap').on('click', function(){
     $('#eventMap').removeClass('hide');
     $('#eventMap').addClass('active');
@@ -6,15 +7,25 @@ $(function() {
     var lng = Number($('#jsLng').val());
     var eventMap = new google.maps.Map(document.getElementById('eventMap'), {
       center: {lat: lat, lng: lng},
-      zoom: 8
+      zoom: 8,
+    });
+    var geocoder = new google.maps.Geocoder;
+    var latlng = {lat: lat, lng: lng };
+    var infowindow = new google.maps.InfoWindow;
+    geocoder.geocode({'location': latlng}, function(results, status) {
+      infowindow.setContent(results[1].formatted_address);
     });
     var eventMarker = new google.maps.Marker({
       position: {lat: lat, lng: lng},
       map: eventMap,
       title: "Your Event location"
     });
+    eventMarker.addListener('click', function() {
+      infowindow.open(eventMap, eventMarker);
+    });
   })
 
+  // map for new event
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -33.8688, lng: 151.2195},
     zoom: 13,
