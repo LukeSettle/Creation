@@ -6,6 +6,7 @@
     = f.input :time, as: :date, html5: true, placeholder: 'enter event date'
     = f.input :latitude, as: :hidden
     = f.input :longitude, as: :hidden
+    = f.input :address
     input#pac-input.controls type="text" placeholder="Search for location"
     #map
     = f.submit

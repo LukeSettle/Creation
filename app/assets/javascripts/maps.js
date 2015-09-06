@@ -9,12 +9,6 @@ $(function() {
       center: {lat: lat, lng: lng},
       zoom: 8,
     });
-    var geocoder = new google.maps.Geocoder;
-    var latlng = {lat: lat, lng: lng };
-    var infowindow = new google.maps.InfoWindow;
-    geocoder.geocode({'location': latlng}, function(results, status) {
-      infowindow.setContent(results[1].formatted_address);
-    });
     var eventMarker = new google.maps.Marker({
       position: {lat: lat, lng: lng},
       map: eventMap,
@@ -23,7 +17,7 @@ $(function() {
     eventMarker.addListener('click', function() {
       infowindow.open(eventMap, eventMarker);
     });
-  })
+  });
 
   // map for new event
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -32,11 +26,16 @@ $(function() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
+  var geocoder = new google.maps.Geocoder;
+  var infowindow = new google.maps.InfoWindow;
   map.addListener('click', function(e) {
     placeMarkerAndPanTo(e.latLng, map);
     console.log(e)
     $('#event_latitude').val(e.latLng.G);
     $('#event_longitude').val(e.latLng.K);
+    geocoder.geocode({'location': e.latLng}, function(results, status) {
+      $('#event_address').val(results[1].formatted_address);
+    });
   });
 
 
