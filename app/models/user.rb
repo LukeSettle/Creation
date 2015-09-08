@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
   end
 
   def upcoming_events
-    self.following_events.where("time <= ?", Time.now)
+    self.following_events.where("time >= ?", Time.now)
   end
 end
