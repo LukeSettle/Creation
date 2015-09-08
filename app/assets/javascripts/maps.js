@@ -1,21 +1,28 @@
 $(function() {
+  var geocoder = new google.maps.Geocoder;
+  var infowindow = new google.maps.InfoWindow;
+
   // map for each event
   $('#openMap').on('click', function(){
     $('#eventMap').removeClass('hide');
     $('#eventMap').addClass('active');
     var lat = Number($('#jsLat').val());
     var lng = Number($('#jsLng').val());
+    var eventLatLng = {lat: lat, lng: lng}
     var eventMap = new google.maps.Map(document.getElementById('eventMap'), {
-      center: {lat: lat, lng: lng},
+      center: eventLatLng,
       zoom: 8,
     });
     var eventMarker = new google.maps.Marker({
-      position: {lat: lat, lng: lng},
+      position: eventLatLng,
       map: eventMap,
       title: "Your Event location"
     });
     eventMarker.addListener('click', function() {
-      infowindow.open(eventMap, eventMarker);
+      geocoder.geocode({'location': eventLatLng}, function(results, status) {
+        infowindow.setContent(results[1].formatted_address);
+        infowindow.open(eventMap, eventMarker);
+      });
     });
   });
 
@@ -26,8 +33,7 @@ $(function() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
-  var geocoder = new google.maps.Geocoder;
-  var infowindow = new google.maps.InfoWindow;
+
   map.addListener('click', function(e) {
     placeMarkerAndPanTo(e.latLng, map);
     console.log(e)
