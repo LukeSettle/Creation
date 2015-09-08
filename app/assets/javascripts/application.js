@@ -5,5 +5,4 @@
 //= require refills/dropdown
 //= require refills/flash
 //= require maps
-//= require events
 //= require datetimepicker
