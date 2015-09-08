@@ -15,6 +15,7 @@
         .card-copy
           p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.longitude} and #{event.latitude}"
           p = event.time
+          p = event.address
           - if event.is_public == true
             p This event is public
           -else

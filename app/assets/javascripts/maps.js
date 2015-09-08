@@ -1,31 +1,47 @@
 $(function() {
+  var geocoder = new google.maps.Geocoder;
+  var infowindow = new google.maps.InfoWindow;
+
+  // map for each event
   $('#openMap').on('click', function(){
     $('#eventMap').removeClass('hide');
     $('#eventMap').addClass('active');
     var lat = Number($('#jsLat').val());
     var lng = Number($('#jsLng').val());
+    var eventLatLng = {lat: lat, lng: lng}
     var eventMap = new google.maps.Map(document.getElementById('eventMap'), {
-      center: {lat: lat, lng: lng},
-      zoom: 8
+      center: eventLatLng,
+      zoom: 8,
     });
     var eventMarker = new google.maps.Marker({
-      position: {lat: lat, lng: lng},
+      position: eventLatLng,
       map: eventMap,
       title: "Your Event location"
     });
-  })
+    eventMarker.addListener('click', function() {
+      geocoder.geocode({'location': eventLatLng}, function(results, status) {
+        infowindow.setContent(results[1].formatted_address);
+        infowindow.open(eventMap, eventMarker);
+      });
+    });
+  });
 
+  // map for new event
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -33.8688, lng: 151.2195},
     zoom: 13,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
+
   map.addListener('click', function(e) {
     placeMarkerAndPanTo(e.latLng, map);
     console.log(e)
     $('#event_latitude').val(e.latLng.G);
     $('#event_longitude').val(e.latLng.K);
+    geocoder.geocode({'location': e.latLng}, function(results, status) {
+      $('#event_address').val(results[1].formatted_address);
+    });
   });
 
 
