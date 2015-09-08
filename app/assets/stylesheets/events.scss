@@ -16,4 +16,10 @@
 #new_event{
   display: block;
   margin: 0px auto;
+  #map{
+    height: 500px;
+    width: 100%;
+    background-color: #ccc;
+    margin: 5px;
+  }
 }
