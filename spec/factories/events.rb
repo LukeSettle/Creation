@@ -6,5 +6,6 @@ FactoryGirl.define do
     longitude { Faker::Number.number(10) }
     time { Faker::Date.between(Date.today + 1.day, 10.days.from_now) }
     is_public {true}
+    address { Faker::Address.street_address }
   end
 end
