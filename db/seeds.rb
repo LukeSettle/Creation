@@ -11,5 +11,5 @@ Activity.create(name: "Hunting", image: 'hunting.jpg')
 User.create(email: Faker::Internet.email, password: Faker::Internet.password(8))
 
 100.times do
-  Event.create(latitude:36.8547 , longitude:87.4889 , time: Faker::Date.forward(100), activity_id: Faker::Number.between(1, 9), user_id: 1)
+  Event.create(latitude:36.8547 , longitude:87.4889 , time: Faker::Date.forward(100), activity_id: Faker::Number.between(1, 9), user_id: 1, address: "613 Ewing Ave. Nashville, Tn.")
 end
