@@ -38,8 +38,14 @@ body#signIn{
 }
 
 .userCardsContainer{
-  width: 50%;
+  width: 70%;
   float: right;
-  position: relative;
-  bottom: 25em;
+  position: absolute;
+  top: 6em;
+  left: 23em;
+  .upcoming{
+    font-size: 25px;
+    text-align: center;
+    color:black;
+  }
 }
