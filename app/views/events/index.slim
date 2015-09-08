@@ -3,7 +3,7 @@
     span You joined an event!
 - if @events.empty?
   .center
-    h1.empty_page There are no results for your search. Would you like to create an event?
+    h1.empty_result There are no results for your search. Would you like to create an event?
     = link_to "New Event", new_event_path, class: 'btn btn-success'
 - else
   .cards
@@ -15,6 +15,7 @@
         .card-copy
           p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.longitude} and #{event.latitude}"
           p = event.time
+          p = event.address
           - if event.is_public == true
             p This event is public
           -else

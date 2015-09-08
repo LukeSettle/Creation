@@ -3,9 +3,13 @@
     .checkbox
       = f.input :is_public, as: :boolean
     = f.association :activity, collection: Activity.all
-    = f.input :time, as: :date, html5: true, placeholder: 'enter event date'
+    = f.input :address
+    = f.input :time, as: "string", id: "datetimepicker", placeholder: "SELECT DATE AND TIME FOR EVENT"
     = f.input :latitude, as: :hidden
     = f.input :longitude, as: :hidden
     input#pac-input.controls type="text" placeholder="Search for location"
     #map
     = f.submit
+
+javascript:
+    $("#event_time").datetimepicker();
