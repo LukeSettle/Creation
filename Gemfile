@@ -39,3 +39,7 @@ group :development, :test do
   gem 'spring'
   gem "zonebie"
 end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-datetimepicker'
+end
