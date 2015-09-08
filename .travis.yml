@@ -1,0 +1,5 @@
+language: ruby
+script:
+  - script/test
+rvm:
+  - 2.2.2
