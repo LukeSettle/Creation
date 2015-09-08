@@ -3,13 +3,15 @@
   width: 300px;
   background-color: #ccc;
 }
-
-#eventMap{
-  height: 500px;
-  width: 500px;
-  background-color: #ccc;
-  display: block;
-  margin: 0px auto;
+.eventMapModal{
+  .modal-inner{
+    width: 100%;
+  }
+  #eventMap{
+    height: 350px;
+    width: 100%;
+    background-color: #ccc;
+  }
 }
 .controls {
   margin-top: 10px;

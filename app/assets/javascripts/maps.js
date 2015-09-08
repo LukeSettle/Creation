@@ -4,8 +4,6 @@ $(function() {
 
   // map for each event
   $('#openMap').on('click', function(){
-    $('#eventMap').removeClass('hide');
-    $('#eventMap').addClass('active');
     var lat = Number($('#jsLat').val());
     var lng = Number($('#jsLng').val());
     var eventLatLng = {lat: lat, lng: lng}
@@ -18,11 +16,9 @@ $(function() {
       map: eventMap,
       title: "Your Event location"
     });
-    eventMarker.addListener('click', function() {
-      geocoder.geocode({'location': eventLatLng}, function(results, status) {
-        infowindow.setContent(results[1].formatted_address);
-        infowindow.open(eventMap, eventMarker);
-      });
+    geocoder.geocode({'location': eventLatLng}, function(results, status) {
+      infowindow.setContent(results[1].formatted_address);
+      infowindow.open(eventMap, eventMarker);
     });
   });
 
