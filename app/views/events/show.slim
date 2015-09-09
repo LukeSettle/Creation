@@ -1,21 +1,25 @@
-.thumbnail.back_pic
-  = image_tag(@event.activity.image, size: "400x300")
-  .caption
-    h1 = @event.activity.name
-    = mail_to @event.user.email, "#{@event.user.email}", subject: "lets go #{@event.activity.name}", body: "Let's go #{@event.activity.name} on #{@event.time} at #{@event.longitude} and #{@event.latitude}"
-  .panel-body
-    ul
-      li = @event.time
+h1.center = "The event creator is #{@event.user.email}"
+.eventShowCard
+  .card
+    .card-image
+      = image_tag(@event.activity.image, size: "400x300")
+    .card-header = "#{@event.activity.name}"
+    .card-copy
+      p = mail_to @event.user.email, "#{@event.user.email}", subject: "lets go #{@event.activity.name}", body: "Let's go #{@event.activity.name} on #{@event.time} at #{@event.longitude} and #{@event.latitude}"
+      p = @event.time
+      p = @event.address
       - if @event.is_public == true
-        li This event is public
+        p This event is public
       -else
-        li This is a private event
-h3 Who's Going
-ul
-  - @event.followers.each do |follower|
-   li = follower.email
-/ a
-/   h1#openMap Click to get directions
+        p This is a private event
+      p = link_to "Join", event_follow_path(@event), method: :put, class: "button"
+.center
+  h3 Who's Going
+  p = "#{pluralize(@event.followers.count, 'person')} going"
+  hr
+  ul
+    - @event.followers.each do |follower|
+      li = follower.email
 
 .eventMapModal
   .modal
