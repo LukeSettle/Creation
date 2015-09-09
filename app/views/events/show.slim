@@ -20,12 +20,18 @@ h1.center = "The event creator is #{@event.user.email}"
   ul
     - @event.followers.each do |follower|
       li = follower.email
-a
-  h1#openMap Click to get directions
-#eventMap.hide
 
+.eventMapModal
+  .modal
+    label for="modal-3"
+      a.modal-trigger#openMap Click to get directions
+    input.modal-state id="modal-3" type="checkbox"
+    .modal-fade-screen
+      .modal-inner
+        .modal-close for="modal-3"
+        #eventMap
 
-/ hidden inputs for lat and lng
+// hidden inputs for lat and lng
 form
- input type="text" value="#{@event.latitude}" id="jsLat" hidden="true"
- input type="text" value="#{@event.longitude}" id="jsLng" hidden="true"
+ input type="hidden" value="#{@event.latitude}" id="jsLat"
+ input type="hidden" value="#{@event.longitude}" id="jsLng"

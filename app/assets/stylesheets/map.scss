@@ -1,10 +1,28 @@
-#eventMap{
-  height: 500px;
-  width: 500px;
+// <<<<<<< HEAD
+#map{
+  height: 300px;
+  width: 300px;
   background-color: #ccc;
-  display: block;
-  margin: 0px auto;
 }
+.eventMapModal{
+  .modal-inner{
+    width: 100%;
+  }
+  #eventMap{
+    height: 350px;
+    width: 100%;
+    background-color: #ccc;
+  }
+}
+// =======
+// #eventMap{
+//   height: 500px;
+//   width: 500px;
+//   background-color: #ccc;
+//   display: block;
+//   margin: 0px auto;
+// // >>>>>>> 2eb4b584b32f4b5ca8b8defa4c3203303f30fa2c
+// }
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;
