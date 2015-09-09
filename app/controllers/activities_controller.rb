@@ -19,6 +19,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
+    @activity_events = @activity.events.paginate(page: params[:page], per_page: 15)
   end
 
   def follow
