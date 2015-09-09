@@ -1,8 +1,6 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
-    <a href="javascript:void(0)" class="logo">
-      <%= image_tag("tree.png") %>
-    </a>
+    <%= link_to image_tag("tree.png"), root_path, class: "logo" %>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
