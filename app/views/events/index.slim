@@ -10,7 +10,7 @@
     - @events.each do |event|
       .card
         .card-image
-          = link_to image_tag(event.activity.image, size: "400x300"), event_path(event), "data-no-turbolink" => true
+          = link_to image_tag(event.activity.image, size: "400x300"), event_path(event)
         .card-header = "#{event.activity.name}"
         .card-copy
           p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.longitude} and #{event.latitude}"
