@@ -13,23 +13,24 @@ h1.center = "The event creator is #{@event.user.email}"
       -else
         p This is a private event
       p = link_to "Join", event_follow_path(@event), method: :put, class: "button"
+      .eventMapModal
+        .modal
+          label for="modal-3"
+            a.modal-trigger#openMap.center Click to see location
+          input.modal-state id="modal-3" type="checkbox"
+          .modal-fade-screen
+            .modal-inner
+              .modal-close for="modal-3"
+              #eventMap
+
+
 .center
-  h3 Who's Going
-  p = "#{pluralize(@event.followers.count, 'person')} going"
+  h3 Who's Going?
   hr
+  p = "#{pluralize(@event.followers.count, 'person')} going:"
   ul
     - @event.followers.each do |follower|
       li = follower.email
-
-.eventMapModal
-  .modal
-    label for="modal-3"
-      a.modal-trigger#openMap Click to get directions
-    input.modal-state id="modal-3" type="checkbox"
-    .modal-fade-screen
-      .modal-inner
-        .modal-close for="modal-3"
-        #eventMap
 
 // hidden inputs for lat and lng
 form

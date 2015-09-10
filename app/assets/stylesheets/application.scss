@@ -11,10 +11,11 @@
 @import "pagination";
 @import "users";
 @import "map";
+@import "normalize";
 
 @media screen and (max-width: 480px)
 {
-  .site-container{ box-sizing: border-box; overflow-x:hidden; }
+  .site-container{ overflow-x:hidden; }
 }
 
 .center{

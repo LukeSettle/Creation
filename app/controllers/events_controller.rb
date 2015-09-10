@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def index
     if current_user
-      @q = Event.ransack(params[:q])
+      @q = current_user.followed_activity_events.ransack(params[:q])
       @events = @q.result.paginate(page: params[:page], per_page: 15)
     else
       @events = Event.all.paginate(page: params[:page], per_page: 15)
