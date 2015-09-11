@@ -1,19 +1,22 @@
 - if @activity.events.count == 0
-  .well
+  .card.center
     h1 There are no current events for #{@activity.name}, would you like to create one?
     h3 = link_to "New Event", new_event_path
 -else
-  - @activity.events.each do |event|
-    .panel.panel-default
-      .panel-heading
-        h1 = event.activity.name
-        = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.latitude} and #{event.longitude}"
-      .panel-body
-        ul
-          li = "Longitude: #{event.latitude}"
-          li = "Latitude: #{event.longitude}"
-          li = event.time
+  .cards
+    - @activity_events.each do |event|
+      .card
+        .card-image
+          = link_to image_tag(event.activity.image, size: "400x300"), event_path(event), "data-no-turbolink" => true
+        .card-header = "#{event.activity.name}"
+        .card-copy
+          p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.longitude} and #{event.latitude}"
+          p = event.time
+          p = event.address
           - if event.is_public == true
-            li This event is public
+            p This event is public
           -else
-            li This is a private event
+            p This is a private event
+          p = link_to "Join", event_follow_path(event), method: :put, class: "button"
+  .apple_pagination
+    = will_paginate @activity_events
