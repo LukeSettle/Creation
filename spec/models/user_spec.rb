@@ -14,6 +14,7 @@ RSpec.describe User, type: :model do
   describe "upcoming_events" do
     it "shows future events" do
       Timecop.freeze(Time.now) do
+        event
         user.follow(event)
         expect(user.upcoming_events.count).to eq(1)
       end
