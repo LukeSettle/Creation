@@ -13,7 +13,8 @@
               li You liked all the activities
             - else
               - @user.unliked_activities.each do |activity|
-                li = link_to activity.name, activity_follow_path(activity), method: :put, class: "to_try_tag"
+                li
+                  a.to_try_tag data-id="#{activity.id}" = activity.name
 
 .modal
   label for="modal-5"
@@ -31,7 +32,7 @@
             - @user.following_activities.each do |activity|
               li
                 = link_to activity.name, activity_path(activity), class: "activity_tag"
-                = link_to "x", activity_unfollow_path(activity), method: :put, class: "x_marker"
+                a.x_marker data-id="#{activity.id}" x
 
 // Right side for upcoming events
 
