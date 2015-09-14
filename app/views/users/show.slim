@@ -1,18 +1,20 @@
 // Left side container
 h3.center = @user.email
 p Activities To Try
-ul
+ul.activities_to_try
   - if @user.unliked_activities.empty?
     li You liked all the activities
   - else
     - @user.unliked_activities.each do |activity|
-      li = link_to activity.name, activity_follow_path(activity), method: :put
+      li = link_to activity.name, activity_follow_path(activity), method: :put, class: "activity_tag"
 
 p Liked Activities
-ul
+ul.liked_activities
   - @user.following_activities.each do |activity|
-    li = link_to activity.name, activity_path(activity), class: "activity_tag"
-
+    li
+      <a class="activity_tag" href="/activities/#{activity.id}">#{activity.name}
+        <a class="x_marker" href="/activities/#{activity.id}/unfollow" data-method="put">x</a>
+      </a>
 // Right side for upcoming events
 
 h1.center Your Upcoming Events

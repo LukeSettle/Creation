@@ -1,6 +1,19 @@
-.activity_tag{
-  background-color: $action-color;
-  color: black;
-  padding: 0px 25px 1px 5px;
-  border-radius: 10px;
+.activities_to_try{
+  display: inline-flex;
+}
+
+.liked_activities{
+  display: inline-flex;
+  .activity_tag{
+    background-color: $action-color;
+    color: white;
+    padding: 0px 25px 1px 5px;
+    border-radius: 10px;
+  }
+  .x_marker{
+    color: black;
+    font-weight: lighter;
+    position: relative;
+    right: 18px;
+  }
 }
