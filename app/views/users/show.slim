@@ -1,20 +1,38 @@
-// Left side container
-h3.center = @user.email
-p Activities To Try
-ul.activities_to_try
-  - if @user.unliked_activities.empty?
-    li You liked all the activities
-  - else
-    - @user.unliked_activities.each do |activity|
-      li = link_to activity.name, activity_follow_path(activity), method: :put, class: "activity_tag"
+.modal
+  label for="modal-4"
+    .modal-trigger Activities to try
+  input.modal-state id="modal-4" type="checkbox"
+  .modal-fade-screen
+    .modal-inner
+      .modal-close for="modal-4"
+      .tags_container
+        .tag_box_container
+          h1.center Activities to try
+          ul.tags
+            - if @user.unliked_activities.empty?
+              li You liked all the activities
+            - else
+              - @user.unliked_activities.each do |activity|
+                li = link_to activity.name, activity_follow_path(activity), method: :put, class: "to_try_tag"
 
-p Liked Activities
-ul.liked_activities
-  - @user.following_activities.each do |activity|
-    li
-      <a class="activity_tag" href="/activities/#{activity.id}">#{activity.name}
-        <a class="x_marker" href="/activities/#{activity.id}/unfollow" data-method="put">x</a>
-      </a>
+.modal
+  label for="modal-5"
+    .modal-trigger#openLiked Activities you like
+  input.modal-state id="modal-5" type="checkbox"
+  .modal-fade-screen
+    .modal-inner
+      .modal-close for="modal-5"
+      .tags_container
+        .tag_box_container
+          h1.center Activities you like
+          ul.tags
+            - if @user.following_activities.empty?
+              li You haven't liked any activities
+            - @user.following_activities.each do |activity|
+              li
+                = link_to activity.name, activity_path(activity), class: "activity_tag"
+                = link_to "x", activity_unfollow_path(activity), method: :put, class: "x_marker"
+
 // Right side for upcoming events
 
 h1.center Your Upcoming Events

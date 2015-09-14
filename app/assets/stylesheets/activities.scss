@@ -1,19 +1,36 @@
-.activities_to_try{
-  display: inline-flex;
+.center_tags{
+  width: 100%;
 }
-
-.liked_activities{
-  display: inline-flex;
-  .activity_tag{
-    background-color: $action-color;
-    color: white;
-    padding: 0px 25px 1px 5px;
-    border-radius: 10px;
-  }
-  .x_marker{
-    color: black;
-    font-weight: lighter;
-    position: relative;
-    right: 18px;
+.tags_container{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5em;
+  .tag_box_container{
+    margin: 5px;
+    .tags{
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      border: solid 1px #ccc;
+      .to_try_tag{
+        background: $action-color;
+        margin-right: 5px;
+        border-radius: 10px;
+        color: white;
+        padding: 0px 7px 1px 6px;
+      }
+      .activity_tag{
+        background-color: $action-color;
+        color: white;
+        padding: 0px 25px 1px 5px;
+        border-radius: 10px;
+      }
+      .x_marker{
+        color: black;
+        font-weight: lighter;
+        position: relative;
+        right: 18px;
+      }
+    }
   }
 }
