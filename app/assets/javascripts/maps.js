@@ -118,6 +118,10 @@ $(function() {
         position: place.geometry.location
       }));
 
+      geocoder.geocode({'location': place.geometry.location}, function(results, status) {
+        $('#event_address').val(results[0].formatted_address);
+      });
+
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
