@@ -1,6 +1,10 @@
-.modal
+.modalOpeners
   label for="modal-4"
-    .modal-trigger Activities to try
+    .modal-trigger.button.activity_modal_open.left Activities to try
+  label for="modal-5"
+    .modal-trigger.button.activity_modal_open.right Activities you like
+
+.modal
   input.modal-state id="modal-4" type="checkbox"
   .modal-fade-screen
     .modal-inner
@@ -17,8 +21,6 @@
                   a.to_try_tag data-id="#{activity.id}" = activity.name
 
 .modal
-  label for="modal-5"
-    .modal-trigger#openLiked Activities you like
   input.modal-state id="modal-5" type="checkbox"
   .modal-fade-screen
     .modal-inner
@@ -26,7 +28,7 @@
       .tags_container
         .tag_box_container
           h1.center Activities you like
-          ul.tags
+          ul.tags#liked
             - if @user.following_activities.empty?
               li You haven't liked any activities
             - @user.following_activities.each do |activity|

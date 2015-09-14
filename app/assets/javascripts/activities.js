@@ -15,7 +15,7 @@ $(function(){
     $.ajax({
       type: "PUT",
       url:  '/activities/'+activityId+'/follow',
-      success:$(this).parent('li').remove()
+      success:$(this).removeClass('to_try_tag').addClass('activity_tag').parent('li').remove().append('<a class="x_marker" data-id="#{activity.id}">x</a>').appendTo($('#liked')),
     });
   });
 });
