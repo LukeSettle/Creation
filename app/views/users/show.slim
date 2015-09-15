@@ -69,7 +69,7 @@ h1.center Your Upcoming Events
          = link_to image_tag(event.activity.image, size: "400x300"), event_path(event)
        .card-header = event.activity.name
        .card-copy
-         p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "We are going on #{event.time}  The location of the event is #{event.address}"
+         p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "We are going on #{event.time}  The location of the event is #{event.address}. Here is a link to our site https://tiy-creation.herokuapp.com"
          p = event.time.strftime("%m/%d/%Y at %I:%M%p")
          p = event.address
          - if event.is_public == true
