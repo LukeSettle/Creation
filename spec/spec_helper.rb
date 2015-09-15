@@ -1,6 +1,7 @@
 require "codeclimate-test-reporter"
 require "zonebie"
 require 'pry'
+require 'capybara/rspec'
 CodeClimate::TestReporter.start
 Zonebie.set_random_timezone
 RSpec.configure do |config|
@@ -12,7 +13,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
-  
+
   config.before(:each) do
     DatabaseCleaner.start
   end

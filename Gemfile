@@ -6,6 +6,7 @@ gem "acts_as_follower"
 gem 'actionview-encoded_mail_to'
 gem 'bourbon'
 gem 'bitters'
+gem 'capybara'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'factory_girl_rails'
@@ -37,6 +38,7 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'selenium-webdriver'
   gem "zonebie"
 end
 
