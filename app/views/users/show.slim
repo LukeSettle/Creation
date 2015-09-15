@@ -60,10 +60,10 @@ h1.center Your Upcoming Events
 
 .userCreatedEventsContainer
   h1.center Events you created
-  - if current_user.created_events.empty?
+  - if @created_events.empty?
     h1.empty_result You have not created any events
   .cards
-   - current_user.created_events.each do |event|
+   - @created_events.each do |event|
      .card
        .card-image
          = link_to image_tag(event.activity.image, size: "400x300"), event_path(event)
@@ -76,3 +76,5 @@ h1.center Your Upcoming Events
            p This event is public
          -else
            p This is a private event
+.apple_pagination
+ = will_paginate @created_events
