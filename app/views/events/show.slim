@@ -2,10 +2,10 @@ h1.center = "The event creator is #{@event.user.email}"
 .eventShowCard
   .card
     .card-image
-      = link_to (image_tag(@event.activity.image, size: "400x300")), event_path(@event)
+      = image_tag(@event.activity.image, size: "400x300")
     .card-header = "#{@event.activity.name}"
     .card-copy
-      p = mail_to @event.user.email, "#{@event.user.email}", subject: "lets go #{@event.activity.name}", body: "Let's go #{@event.activity.name} on #{@event.time} at #{@event.longitude} and #{@event.latitude}"
+      p = mail_to @event.user.email, "#{@event.user.email}", subject: "lets go #{@event.activity.name}", body: "Let's go #{@event.activity.name} We are going on #{@event.time}  The location of the event is #{@event.address}"
       p = @event.time
       p = @event.address
       - if @event.is_public == true
@@ -25,7 +25,7 @@ h1.center = "The event creator is #{@event.user.email}"
 
 
 .center
-  h3 Who's Going?
+  h3.going Who's Going?
   hr
   p = "#{pluralize(@event.followers.count, 'person')} going:"
   ul

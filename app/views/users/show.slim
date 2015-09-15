@@ -43,8 +43,9 @@
          = link_to image_tag(event.activity.image, size: "400x300"), event_path(event)
        .card-header = event.activity.name
        .card-copy
-         p = mail_to event.user.email, event.user.email, subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.longitude} and #{event.latitude}"
+         p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "We are going on #{event.time}  The location of the event is #{event.address}"
          p = event.time
+         p = event.address
          - if event.is_public == true
            p This event is public
          -else

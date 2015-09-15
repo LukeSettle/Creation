@@ -23,14 +23,25 @@
     margin: 5px;
   }
 }
-
+.going{
+  margin-top: 15px;
+}
 .eventShowCard{
-  width: 70%;
-  display: block;
-  margin: 0px auto;
-  .card-image{
-    width: 50%;
+  .card{
+    width: 70%;
     display: block;
     margin: 0px auto;
+    &:hover {
+      cursor: initial;
+
+      img {
+        opacity: 1;
+      }
+    }
+    .card-image{
+      width: 50%;
+      display: block;
+      margin: 0px auto;
+    }
   }
 }

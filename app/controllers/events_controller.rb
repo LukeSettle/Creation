@@ -21,6 +21,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     if @event.save
+      current_user.follow(@event)
       redirect_to root_path
     else
       render 'new'
