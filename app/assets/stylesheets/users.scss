@@ -1,4 +1,7 @@
 body#signIn{
+  .site-container{
+    min-height: 500px;
+  }
   background-image: image-url("trees.jpg");
   .linkContainer{
     text-align: center;
