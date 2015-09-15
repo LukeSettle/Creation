@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def upcoming_events
     self.following_events.where("time >= ?", Time.now)
   end
+
+  def created_events
+    Event.where(user_id: self.id)
+  end
 end

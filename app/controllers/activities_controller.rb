@@ -28,6 +28,12 @@ class ActivitiesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def unfollow
+    @activity = Activity.find(params[:activity_id])
+    current_user.stop_following(@activity)
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def activity_params
