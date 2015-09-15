@@ -54,3 +54,42 @@ $(function() {
     e.stopPropagation();
   });
 });
+
+// modal for activities to try
+$(function() {
+  $("#openToTry").on("click", function() {
+    if ($(this).is(":checked")) {
+      $("body").addClass("modal-open4");
+    } else {
+      $("body").removeClass("modal-open4");
+    }
+  });
+
+  $(".modal-fade-screen, .modal-close").on("click", function() {
+    $(".modal-state:checked").prop("checked", false).change();
+  });
+
+  $(".modal-inner").on("click", function(e) {
+    e.stopPropagation();
+  });
+});
+
+
+// modal for liked activities
+$(function() {
+  $("#openLiked").on("click", function() {
+    if ($(this).is(":checked")) {
+      $("body").addClass("modal-open5");
+    } else {
+      $("body").removeClass("modal-open5");
+    }
+  });
+
+  $(".modal-fade-screen, .modal-close").on("click", function() {
+    $(".modal-state:checked").prop("checked", false).change();
+  });
+
+  $(".modal-inner").on("click", function(e) {
+    e.stopPropagation();
+  });
+});

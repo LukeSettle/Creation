@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :activities do
     put :follow
+    put :unfollow
   end
   root 'events#index'
 end

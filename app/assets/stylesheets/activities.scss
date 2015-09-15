@@ -1,3 +1,46 @@
-// Place all the styles related to the activities controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.modalOpeners{
+  margin-bottom: 5em;
+  text-align: center;
+  .left{
+    float: left;
+  }
+  .right{
+    float: right;
+  }
+}
+.center_tags{
+  width: 100%;
+}
+.tags_container{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5em;
+  .tag_box_container{
+    margin: 5px;
+    .tags{
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      border: solid 1px #ccc;
+      .to_try_tag{
+        background: $action-color;
+        margin-right: 5px;
+        border-radius: 10px;
+        color: white;
+        padding: 0px 7px 1px 6px;
+      }
+      .activity_tag{
+        background-color: $action-color;
+        color: white;
+        padding: 0px 25px 1px 5px;
+        border-radius: 10px;
+      }
+      .x_marker{
+        color: black;
+        font-weight: lighter;
+        position: relative;
+        right: 18px;
+      }
+    }
+  }
+}
