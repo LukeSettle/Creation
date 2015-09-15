@@ -16,11 +16,4 @@ RSpec.describe ActivitiesController, type: :controller do
       expect(activity.followers.count).to eq(1)
     end
   end
-
-  describe "GET #new" do
-    it "loads" do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
-  end
 end
