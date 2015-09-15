@@ -2,14 +2,16 @@
   = simple_form_for @event do |f|
     .checkbox
       = f.input :is_public, as: :boolean
-    = f.association :activity, collection: Activity.all
-    = f.input :address
+    = f.association :activity, collection: Activity.all, include_blank: false
     = f.input :time, as: "string", id: "datetimepicker", placeholder: "SELECT DATE AND TIME FOR EVENT"
     = f.input :latitude, as: :hidden
     = f.input :longitude, as: :hidden
     input#pac-input.controls type="text" placeholder="Search for location"
     #map
+    = f.input :address, placeholder: "Click map to select location"
     = f.submit
 
 javascript:
-    $("#event_time").datetimepicker();
+    $("#event_time").datetimepicker({
+      format:'D-M-Y h:ia',
+    });

@@ -18,7 +18,7 @@ $(function() {
         title: "Your Event location"
       });
       geocoder.geocode({'location': eventLatLng}, function(results, status) {
-        infowindow.setContent(results[1].formatted_address);
+        infowindow.setContent(results[0].formatted_address);
         infowindow.open(eventMap, eventMarker);
       });
     });
@@ -37,7 +37,7 @@ $(function() {
       $('#event_latitude').val(e.latLng.G);
       $('#event_longitude').val(e.latLng.K);
       geocoder.geocode({'location': e.latLng}, function(results, status) {
-        $('#event_address').val(results[1].formatted_address);
+        $('#event_address').val(results[0].formatted_address);
       });
     });
 
