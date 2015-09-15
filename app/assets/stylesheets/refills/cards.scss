@@ -71,10 +71,6 @@
   &:focus,
   &:hover {
     cursor: pointer;
-
-    img {
-      opacity: $card-image-hover-opacity;
-    }
   }
 
   &:active {
