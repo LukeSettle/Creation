@@ -17,7 +17,7 @@
               li You liked all the activities
             - else
               - @user.unliked_activities.each do |activity|
-                li
+                li.tag
                   a.to_try_tag data-id="#{activity.id}" = activity.name
 
 .modal
@@ -32,7 +32,7 @@
             - if @user.following_activities.empty?
               li You haven't liked any activities
             - @user.following_activities.each do |activity|
-              li
+              li.tag
                 = link_to activity.name, activity_path(activity), class: "activity_tag"
                 a.x_marker data-id="#{activity.id}" x
 
