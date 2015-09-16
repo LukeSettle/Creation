@@ -7,9 +7,10 @@ Activity.create(name: "Snow Skiing", image: 'Snow-Skiing.jpg')
 Activity.create(name: "Snowboarding", image: 'Snowboarding.jpg')
 Activity.create(name: "Kayaking", image: 'Kayaking.jpg')
 Activity.create(name: "Hunting", image: 'hunting.jpg')
+Activity.create(name: "Paddle Boarding", image: 'PaddleBoarding.jpg')
 
 User.create(email: Faker::Internet.email, password: Faker::Internet.password(8))
 
 100.times do
-  Event.create(latitude:36.8547 , longitude:87.4889 , time: Faker::Date.forward(100), activity_id: Faker::Number.between(1, 9), user_id: 1, address: "613 Ewing Ave. Nashville, Tn.")
+  Event.create(latitude:-36.8547 , longitude:87.4889 , time: Faker::Date.forward(100), activity_id: Faker::Number.between(1, 10), user_id: 1, address: "613 Ewing Ave. Nashville, Tn.")
 end
