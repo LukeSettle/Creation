@@ -4,4 +4,9 @@ class Event < ActiveRecord::Base
   validates :activity, :time, :address, presence: true
   acts_as_followable
   default_scope { order(created_at: :desc) }
+  after_create :owner_follows
+
+  def owner_follows
+    self.user.follow(self)
+  end
 end
