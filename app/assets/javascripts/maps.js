@@ -34,8 +34,8 @@ $(function() {
     map.addListener('click', function(e) {
       placeMarkerAndPanTo(e.latLng, map);
       console.log(e)
-      $('#event_latitude').val(e.latLng.G);
-      $('#event_longitude').val(e.latLng.K);
+      $('#event_latitude').val(e.latLng.H);
+      $('#event_longitude').val(e.latLng.L);
       geocoder.geocode({'location': e.latLng}, function(results, status) {
         $('#event_address').val(results[0].formatted_address);
       });
@@ -118,6 +118,12 @@ $(function() {
           title: place.name,
           position: place.geometry.location
         }));
+        console.log(place.geometry.location)
+        $('#event_latitude').val(place.geometry.location.H);
+        $('#event_longitude').val(place.geometry.location.L);
+        geocoder.geocode({'location': place.geometry.location}, function(results, status) {
+          $('#event_address').val(results[0].formatted_address);
+        });
 
         if (place.geometry.viewport) {
           // Only geocodes have viewport.
