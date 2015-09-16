@@ -9,11 +9,4 @@ RSpec.describe ActivitiesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe "#follow" do
-    it "allows users to follow activities" do
-      user.follow(activity)
-      expect(activity.followers.count).to eq(1)
-    end
-  end
 end
