@@ -288,7 +288,7 @@ header.navigation {
     form {
       position: relative;
 
-      input[type=search] {
+      input[type=text] {
         @include box-sizing(border-box);
         background: $navigation-search-background;
         border-radius: $base-border-radius * 2;
