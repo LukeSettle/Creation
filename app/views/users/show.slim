@@ -17,7 +17,7 @@
               li You liked all the activities
             - else
               - @user.unliked_activities.each do |activity|
-                li
+                li.tag
                   a.to_try_tag data-id="#{activity.id}" = activity.name
 
 .modal
@@ -32,7 +32,7 @@
             - if @user.following_activities.empty?
               li You haven't liked any activities
             - @user.following_activities.each do |activity|
-              li
+              li.tag
                 = link_to activity.name, activity_path(activity), class: "activity_tag"
                 a.x_marker data-id="#{activity.id}" x
 
@@ -48,8 +48,8 @@ h1.center Your Upcoming Events
        = link_to image_tag(event.activity.image, size: "400x300"), event_path(event)
      .card-header = event.activity.name
      .card-copy
-       p = mail_to event.user.email, event.user.email, subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.longitude} and #{event.latitude}"
-       p = event.time
+       p = mail_to event.user.email, event.user.email, subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.address}. Here is a link to our site https://tiy-creation.herokuapp.com"
+       p = event.time.strftime("%m/%d/%Y at %I:%M%p")
        p = event.address
        - if event.is_public == true
          p This event is public
@@ -60,19 +60,21 @@ h1.center Your Upcoming Events
 
 .userCreatedEventsContainer
   h1.center Events you created
-  - if current_user.created_events.empty?
+  - if @created_events.empty?
     h1.empty_result You have not created any events
   .cards
-   - current_user.created_events.each do |event|
+   - @created_events.each do |event|
      .card
        .card-image
          = link_to image_tag(event.activity.image, size: "400x300"), event_path(event)
        .card-header = event.activity.name
        .card-copy
-         p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "We are going on #{event.time}  The location of the event is #{event.address}"
-         p = event.time
+         p = mail_to event.user.email, "#{event.user.email}", subject: "lets go #{event.activity.name}", body: "We are going on #{event.time}  The location of the event is #{event.address}. Here is a link to our site https://tiy-creation.herokuapp.com"
+         p = event.time.strftime("%m/%d/%Y at %I:%M%p")
          p = event.address
          - if event.is_public == true
            p This event is public
          -else
            p This is a private event
+.apple_pagination
+ = will_paginate @created_events

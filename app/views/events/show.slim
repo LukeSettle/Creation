@@ -6,7 +6,7 @@ h1.center = "The event creator is #{@event.user.email}"
     .card-header = "#{@event.activity.name}"
     .card-copy
       p = mail_to @event.user.email, "#{@event.user.email}", subject: "lets go #{@event.activity.name}", body: "Let's go #{@event.activity.name} We are going on #{@event.time}  The location of the event is #{@event.address}"
-      p = @event.time
+      p = @event.time.strftime("%m/%d/%Y at %I:%M%p")
       p = @event.address
       - if @event.is_public == true
         p This event is public

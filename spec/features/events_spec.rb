@@ -22,7 +22,7 @@ RSpec.feature "Events" do
     scenario "shows all followed_activity_events" do
       capybara_sign_in(user)
       events.each do |e|
-        expect(page).to have_content(e.time)
+        expect(page).to have_content(e.time.strftime("%m/%d/%Y at %I:%M%p"))
         expect(page).to have_content(e.address)
         expect(page).to have_content(e.user.email)
       end
@@ -33,7 +33,7 @@ RSpec.feature "Events" do
       capybara_sign_in(user)
       events.each do |e|
         visit event_path(e.id)
-        expect(page).to have_content(e.time)
+        expect(page).to have_content(e.time.strftime("%m/%d/%Y at %I:%M%p"))
         expect(page).to have_content(e.activity.name)
         expect(page).to have_content(e.user.email)
       end

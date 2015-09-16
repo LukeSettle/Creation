@@ -118,6 +118,11 @@ $(function() {
           title: place.name,
           position: place.geometry.location
         }));
+        $('#event_latitude').val(place.geometry.location.G);
+        $('#event_longitude').val(place.geometry.location.K);
+        geocoder.geocode({'location': place.geometry.location}, function(results, status) {
+          $('#event_address').val(results[0].formatted_address);
+        });
 
         if (place.geometry.viewport) {
           // Only geocodes have viewport.

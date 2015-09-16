@@ -1,18 +1,4 @@
 class ActivitiesController < ApplicationController
-  def new
-    @activity = Activity.new
-  end
-
-  def create
-    @activity = Activity.new(activity_params)
-    if @activity.save
-      redirect_to root_path
-    else
-      render 'new'
-      flash[:warning]="Your activity was not saved"
-    end
-  end
-
   def show
     @activity = Activity.find(params[:id])
     @activity_events = @activity.events.paginate(page: params[:page], per_page: 15)
