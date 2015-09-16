@@ -1,7 +1,8 @@
 - if @activity_events.count == 0
-  .card.center
-    h1 There are no current events for #{@activity.name} with this criteria, would you like to create one?
-    h3 = link_to "New Event", new_event_path
+  .queryErrors
+    .card.center
+      h1 There are no current events for #{@activity.name} with this criteria, would you like to create one?
+      h3 = link_to "New Event", new_event_path
 - else
   .cards
     - @activity_events.each do |event|
