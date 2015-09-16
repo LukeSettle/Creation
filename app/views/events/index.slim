@@ -10,6 +10,7 @@
   .center
     h1.empty_result There are no results for your search. Would you like to create an event?
     = link_to "New Event", new_event_path, class: 'button'
+
 - else
   .cards
     - @events.each do |event|

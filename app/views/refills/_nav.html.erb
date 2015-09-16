@@ -20,7 +20,8 @@
         </li>
       </ul>
     </nav>
-    <% if current_page?(controller: 'events') || current_page?(root_path) %>
+    <% if current_page?(controller: 'events', action: 'new')%>
+    <% elsif current_page?(controller: 'events') || current_page?(root_path) || current_page?(controller: 'activities', action: 'show' )%>
     <div class="navigation-tools">
       <div class="search-bar">
         <form role="search">

@@ -1,8 +1,8 @@
-- if @activity.events.count == 0
+- if @activity_events.count == 0
   .card.center
-    h1 There are no current events for #{@activity.name}, would you like to create one?
+    h1 There are no current events for #{@activity.name} with this criteria, would you like to create one?
     h3 = link_to "New Event", new_event_path
--else
+- else
   .cards
     - @activity_events.each do |event|
       .card

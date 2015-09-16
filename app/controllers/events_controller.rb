@@ -1,12 +1,11 @@
 class EventsController < ApplicationController
   def index
-    if current_user
+    authenticate_user!
       if params[:search] && params[:search] != ""
         @events = current_user.followed_activity_events.search(params[:search]).paginate(page: params[:page], per_page: 15)
       else
         @events = current_user.followed_activity_events.paginate(page: params[:page], per_page: 15)
       end
-    end
   end
 
   def show
