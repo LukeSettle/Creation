@@ -21,10 +21,15 @@
       display: inline-flex;
       flex-direction: row;
       flex-wrap: wrap;
+
       margin: 3px;
       .tag{
         margin: 3px;
+
+      &:hover {
+        cursor: pointer;
       }
+    }
       .to_try_tag{
         background: $action-color;
         margin-right: 5px;
