@@ -1,4 +1,4 @@
-- if @activity_events.count == 0
+- if @activity_events.empty?
   .queryErrors
     .card.center
       h1 There are no current events for #{@activity.name} with this criteria, would you like to create one?

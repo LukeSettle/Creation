@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @activity_events = @activity.events.paginate(page: params[:page], per_page: 15)
     authenticate_user!
-      if params[:search] && params[:search] != ""
+      unless params[:search].blank?
         @activity_events = @activity_events.search(params[:search]).paginate(page: params[:page], per_page: 15)
       else
         @activity_events = @activity_events.paginate(page: params[:page], per_page: 15)
