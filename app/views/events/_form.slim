@@ -1,14 +1,18 @@
 .well.form_container
   = simple_form_for @event do |f|
-    .checkbox
-      = f.input :is_public, as: :boolean
-    = f.association :activity, collection: Activity.all, include_blank: false
-    = f.input :time, as: "string", id: "datetimepicker", placeholder: "SELECT DATE AND TIME FOR EVENT"
-    = f.input :latitude, as: :hidden
-    = f.input :longitude, as: :hidden
+    .form_field
+      = f.association :activity, collection: Activity.all, include_blank: false
+    .form_field
+      = f.input :time, as: "string", id: "datetimepicker", placeholder: "SELECT DATE AND TIME FOR EVENT"
+    .form_field
+      = f.input :latitude, as: :hidden
+    .form_field
+      = f.input :longitude, as: :hidden
     input#pac-input.controls type="text" placeholder="Search for location"
     #map
     = f.input :address, placeholder: "Click map to select location"
+    .form_field.checkbox
+      = f.input :is_public, as: :boolean
     = f.submit
 
 javascript:
