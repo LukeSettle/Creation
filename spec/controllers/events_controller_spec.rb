@@ -31,8 +31,11 @@ RSpec.describe EventsController, type: :controller do
 
   describe '#create' do
     it 'Events can be created' do
-      sign_in(user)
+      user1 = user
+      sign_in(user1)
       expect{post :create, event: {activity_id: activity.id, time: Time.now, address: 'Here'}}.to change{Event.count}.by(1)
+      Event.first.user = user1
+      expect(user1).to be_following(Event.first.activity)
     end
   end
 end
