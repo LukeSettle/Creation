@@ -6,18 +6,6 @@
 - else
   .cards
     - @activity_events.each do |event|
-      .card
-        .card-image
-          = link_to image_tag(event.activity.image, size: "400x300"), event_path(event)
-        .card-header = "#{event.activity.name}"
-        .card-copy
-          p = mail_to event.user.email, event.user.email, subject: "lets go #{event.activity.name}", body: "Let's go #{event.activity.name} on #{event.time} at #{event.address}. Here is a link to our site https://tiy-creation.herokuapp.com"
-          p = event.time.strftime("%m/%d/%Y at %I:%M%p")
-          p = event.address
-          - if event.is_public == true
-            p This event is public
-          -else
-            p This is a private event
-          p = link_to "Join", event_follow_path(event), method: :put, class: "button"
+      = render partial: 'events/eventCards', locals: { event: event }
   .apple_pagination
     = will_paginate @activity_events
