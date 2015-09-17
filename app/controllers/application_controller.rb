@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :all_activities
   private
-  
+
   def all_activities
     @all_activities = Activity.all
   end

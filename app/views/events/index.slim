@@ -2,14 +2,17 @@
   .flash-success
     span You joined an event!
 - if current_user && current_user.following_activities.empty?
-  .center
-    h1.empty_results You have not liked any activities!
-    p You can select activities to follow in your profile page
-    = link_to "Profile", user_path(current_user), class: 'button'
+  .queryErrors
+      .card.center
+        h1.empty_results You have not liked any activities!
+        p You can select activities to follow in your profile page
+        h3 = link_to "Profile", user_path(current_user), class: 'button'
 - elsif @events.empty?
-  .center
-    h1.empty_result There are no results for your search. Would you like to create an event?
-    = link_to "New Event", new_event_path, class: 'button'
+  .queryErrors
+    .card.center
+      h1 There are no results for your search. Would you like to create an event?
+      h3 = link_to "New Event", new_event_path, class: 'button'
+
 - else
   .cards
     - @events.each do |event|
