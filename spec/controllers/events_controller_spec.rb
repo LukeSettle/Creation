@@ -37,5 +37,9 @@ RSpec.describe EventsController, type: :controller do
       Event.first.user = user1
       expect(user1).to be_following(Event.first.activity)
     end
+    it 'redirects if not signed in' do
+      post :create, event: {activity_id: activity.id, time: Time.now, address: 'Here'}
+      expect(response).to have_http_status(:redirect)
+    end
   end
 end

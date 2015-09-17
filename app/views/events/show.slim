@@ -1,3 +1,7 @@
+- if flash[:alert]
+  .flash-success
+    span You joined an event!
+
 h1.center = "The event creator is #{@event.user.email}"
 .eventShowCard
   = render partial: 'eventCards', locals: {event: @event}

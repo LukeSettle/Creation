@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    authenticate_user!
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
@@ -32,7 +33,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     current_user.follow(@event)
     flash[:alert] = "You joined an event!"
-    redirect_to root_path
+    redirect_to :back
   end
 
   private
