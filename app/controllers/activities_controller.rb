@@ -2,6 +2,12 @@ class ActivitiesController < ApplicationController
   def show
     @activity = Activity.find(params[:id])
     @activity_events = @activity.events.paginate(page: params[:page], per_page: 15)
+    authenticate_user!
+      unless params[:search].blank?
+        @activity_events = @activity_events.search(params[:search]).paginate(page: params[:page], per_page: 15)
+      else
+        @activity_events = @activity_events.paginate(page: params[:page], per_page: 15)
+      end
   end
 
   def follow

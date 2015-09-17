@@ -1,6 +1,6 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
-    <%= link_to image_tag("tree.png"), root_path, class: "logo" %>
+    <%= link_to image_tag("creation_logo.png"), root_path, class: "logo" %>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
@@ -20,12 +20,13 @@
         </li>
       </ul>
     </nav>
-    <% if current_page?(controller: 'events') || current_page?(root_path) %>
+    <% if current_page?(controller: 'events', action: 'new')%>
+    <% elsif current_page?(controller: 'events') || current_page?(root_path) || current_page?(controller: 'activities', action: 'show' )%>
     <div class="navigation-tools">
       <div class="search-bar">
         <form role="search">
-          <%= search_form_for @q do |f| %>
-            <%= f.search_field :address_cont, placeholder: 'search location', class: "button" %>
+          <%= form_for events_path do |f| %>
+            <%= text_field_tag :search, params[:search], placeholder: 'search for location', class: "button" %>
             <button type="submit">
               <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
             </button>

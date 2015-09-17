@@ -9,4 +9,10 @@ class Event < ActiveRecord::Base
   def owner_follows
     self.user.follow(self)
   end
+
+  def self.search(query)
+    q = "%#{query}%"
+    Event.where("address ILIKE ? OR user ILIKE ?", q, q)
+  end
+  
 end
