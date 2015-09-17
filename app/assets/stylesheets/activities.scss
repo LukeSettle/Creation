@@ -1,11 +1,9 @@
 .modalOpeners{
-  margin-bottom: 5em;
-  text-align: center;
-  .left{
-    float: left;
-  }
-  .right{
-    float: right;
+  display: inline-flex;
+  position: relative;
+  top: 10px;
+  .button{
+    margin: 0px 5px 0px 5px;
   }
 }
 .center_tags{

@@ -7,7 +7,6 @@
         <li class="nav-link"><%=link_to "Home", root_path%></li>
         <li class="nav-link"><%= link_to "Profile", user_path(current_user)%></li>
         <li class="nav-link"><%=link_to "New Event", new_event_path%></li>
-        </li>
         <li class="nav-link more"><a href="javascript:void(0)">Activities</a>
           <ul class="submenu">
             <% all_activities.each do |activity| %>
@@ -32,6 +31,18 @@
           <%end%>
         </form>
       </div>
+      <%elsif current_page?(controller: 'events', action: 'new')%>
+      <%elsif current_page?(controller: 'users', action: 'show')%>
+        <div class="navigation-tools">
+          <div class="modalOpeners">
+            <label for="modal-4">
+              <div class="modal-trigger button activity_modal_open left"> Activities to try</div>
+            </label>
+            <label for="modal-5">
+              <div class="modal-trigger button activity_modal_open left"> Activities you like </div>
+            </label>
+          </div>
+        </div>
       <%end%>
     </div>
   </div>
