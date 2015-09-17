@@ -19,13 +19,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.user_id = current_user.id
+    @event.user = current_user
     if @event.save
-      current_user.follow(@event)
       redirect_to root_path
     else
+      flash[:warning] = "Your event was not saved"
       render 'new'
-      flash[:warning]="Your event was not saved"
     end
   end
 
@@ -39,6 +38,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:activity_id, :user_id, :latitude, :longitude, :address, :is_public, :time)
+    params.require(:event).permit(:activity_id, :latitude, :longitude, :address, :is_public, :time)
   end
 end
