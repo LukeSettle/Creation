@@ -4,9 +4,8 @@ RSpec.describe UsersController, type: :controller do
   let(:user) { FactoryGirl.create(:user) }
   describe "#show" do
     it 'loads' do
-      u = user
-      sign_in(u)
-      get :show, id: u.id
+      sign_in(user)
+      get :show, id: user.id
       expect(response).to have_http_status(:success)
     end
   end

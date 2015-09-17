@@ -25,10 +25,8 @@ RSpec.describe EventsController, type: :controller do
 
   describe '#create' do
     it 'Events can be created' do
-      post :create, event: FactoryGirl.attributes_for(:event)
-      event.reload
-      expect(Event.count).to eq(1)
-      expect(event.user).to be_following(event)
+      sign_in(user)
+      expect{post :create, event: {activity_id: activity.id, time: Time.now, address: 'Here'}}.to change{Event.count}.by(1)
     end
   end
 end
