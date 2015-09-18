@@ -1,3 +1,7 @@
+- if flash[:alert]
+  .flash-success
+    span You joined an event!
+
 - if @activity_events.empty?
   .queryErrors
     .card.center
