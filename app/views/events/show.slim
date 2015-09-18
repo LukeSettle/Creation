@@ -13,6 +13,8 @@ h1.center = "The event creator is #{@event.user.email}"
 
 
 .center
+  h1.going Invite!
+  a.twitter-share-button href="https://twitter.com/share" data-url="http://tiy-creation.herokuapp.com/events/#{@event.id}" data-count="none" data-text="You should go to this event." Tweet
   h3.going Who's Going?
   hr
   p = "#{pluralize(@event.followers.count, 'person')} going:"
@@ -24,3 +26,6 @@ h1.center = "The event creator is #{@event.user.email}"
 form
  input type="hidden" value="#{@event.latitude}" id="jsLat"
  input type="hidden" value="#{@event.longitude}" id="jsLng"
+
+javascript:
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
