@@ -1,7 +1,7 @@
 - if flash[:alert]
   .flash-success
     span You joined an event!
-    
+
 .modal
   input.modal-state id="modal-4" type="checkbox"
   .modal-fade-screen
@@ -25,7 +25,7 @@
       .modal-close for="modal-5"
       .tags_container
         .tag_box_container
-          h1.center Activities you like
+          h1.center Liked activities
           ul.tags#liked
             - if @user.following_activities.empty?
               li You haven't liked any activities
