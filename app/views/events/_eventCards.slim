@@ -9,9 +9,4 @@
     p = event.time.strftime("%m/%d/%Y at %I:%M%p")
     h3.center Address:
     p = event.address
-    h3.center Status:
-    - if event.is_public == true
-      p Public
-    -else
-      p Private
     p = link_to "Join", event_follow_path(event), method: :put, class: "button"
