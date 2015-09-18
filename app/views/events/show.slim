@@ -14,7 +14,7 @@ h1.center = "The event creator is #{@event.user.email}"
 
 .center
   h1.going Invite!
-  a.twitter-share-button href="https://twitter.com/share" data-url="http://tiy-creation.herokuapp.com/events/#{@event.id}" data-text="You should go to this event." Tweet
+  a.twitter-share-button href="https://twitter.com/share" data-url="http://tiy-creation.herokuapp.com/events/#{@event.id}" data-count="none" data-text="You should go to this event." Tweet
   h3.going Who's Going?
   hr
   p = "#{pluralize(@event.followers.count, 'person')} going:"
